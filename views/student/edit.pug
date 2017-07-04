@@ -1,0 +1,34 @@
+extends ../layout
+
+block content
+  if (student.length === 0)
+    h1 Not a valid student
+  else
+    h1 Edit #{student[0].name}
+    div.row
+      div.col-md-4
+        form(action='/student/' + student[0].id + '/edit', method="POST")
+          div.form-group
+            label(for='student-name') Student Name
+            input.form-control(type='text', name="name", id='student-name', placeholder='Student name', value=student[0].name, required)
+          div.form-group
+            label(for='student-dob') Date of birth
+            - var formatted_dob = moment(student[0].dob).format('YYYY-MM-DD')
+            input.form-control(type='date', name="date_of_birth", id='student-dob', value=formatted_dob, required)
+          div.form-group
+            label(for='student-nationality') Nationality
+            input.form-control(type='text', name="nationality", id='student-nationality', placeholder='Student\'s nationality', value=student[0].nationality, required)
+          div.form-group
+            label(for='student-course') Course ID
+            select.form-control(name='class_id')
+              for classroom in classes
+                if (classroom.id === student[0].class_id)
+                  option(value=classroom.id, selected)= classroom.id
+                else
+                  option(value=classroom.id)= classroom.id
+          div.form-group
+            label(for='student-year') Year of Study
+            input.form-control(type='text', name="year_of_study", id='student-year', placeholder='Student\'s current year of study', value=student[0].year_of_study, required)
+              
+          button.btn.btn-primary(type='submit') Edit
+    

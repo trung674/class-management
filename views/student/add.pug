@@ -1,0 +1,27 @@
+extends ../layout
+
+block content
+  h1= title
+  div.row
+    div.col-md-4
+      form(action='/student/add', method="POST")
+        div.form-group
+          label(for='student-name') Student Name
+          input.form-control(type='text', name="name", id='student-name', placeholder='Student name', required)
+        div.form-group
+          label(for='student-dob') Date of birth
+          input.form-control(type='date', name="date_of_birth", id='student-dob', required)
+        div.form-group
+          label(for='student-nationality') Nationality
+          input.form-control(type='text', name="nationality", id='student-nationality', placeholder='Student\'s nationality', required)
+        div.form-group
+          label(for='student-course') Course ID
+          select.form-control(name='class_id')
+            for classroom in classes
+              option(value=classroom.id)= classroom.id
+        div.form-group
+          label(for='student-year') Year of Study
+          input.form-control(type='text', name="year_of_study", id='student-year', placeholder='Student\'s current year of study', required)
+            
+        button.btn.btn-primary(type='submit') Add
+  
