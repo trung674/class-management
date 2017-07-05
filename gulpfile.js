@@ -20,16 +20,16 @@ gulp.task('scripts', function() {
     .pipe(sourcemaps.init())
     .pipe(minifyJS())
     .on('error', function (err) { gutil.log(gutil.colors.red('[Error]'), err.toString()); })
-    .pipe(concat('all.min.js'))
+    .pipe(concat('index.js'))
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest('build/js'));
+    .pipe(gulp.dest('build/javascripts'));
 });
 
 gulp.task('css', function(){
   return gulp.src('public/stylesheets/*.sass')
     .pipe(sass())
     .pipe(minifyCSS())
-    .pipe(gulp.dest('build/css'))
+    .pipe(gulp.dest('build/stylesheets'))
 });
 
 gulp.task('watch', function() {
@@ -45,3 +45,4 @@ gulp.task('watch', function() {
 
 // The default task (called when you run `gulp` from cli)
 gulp.task('default', ['watch', 'scripts', 'css']);
+gulp.task('production', ['scripts', 'css']);
