@@ -6,7 +6,7 @@ $(document).ready(function() {
     class_info.empty();
     var class_id = $(this).data('class-id');
     $.ajax({
-      url: "http://localhost:3000/api/class/" + class_id,
+      url: "https://class-management-101.herokuapp.com/api/class/" + class_id,
       method: "GET",
       dataType: 'json',
       success: function(data) {

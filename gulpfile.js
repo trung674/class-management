@@ -15,7 +15,7 @@ gulp.task('clean', function() {
   return del(['build']);
 });
 
-gulp.task('scripts', function() {
+gulp.task('scripts', ['clean'], function() {
   return gulp.src('public/javascripts/*.js')
     .pipe(sourcemaps.init())
     .pipe(minifyJS())
