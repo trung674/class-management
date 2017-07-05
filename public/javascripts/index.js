@@ -32,7 +32,6 @@ $(document).ready(function() {
                         "<h4>The average student age is " + data.age_average + "</h4><br />" +
                         "<table class='table'><tr><th>ID</th><th>Student Name</th><th>Date of Birth</th><th>Class ID</th><th>Nationality</th><th>Year of study</th>" +
                         "<th>Actions</th></tr>" + table + "</table></div></div>";
-
         }
         class_info.append(content);
       },
