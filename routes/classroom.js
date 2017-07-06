@@ -56,39 +56,6 @@ router.get('/class/:id/delete', function(req, res, next) {
   });
 });
 
-// GET class
-// router.get('/class/:id', function(req, res, next) {
-//   var class_id = req.params.id;
-//   connection.query('SELECT * FROM class WHERE id="' + class_id + '"', function(error, results, fields) {
-//     if (error) throw error;
-//     if (results.length > 0) {
-//       connection.query('SELECT * FROM student WHERE class_id= "' + class_id + '"', function(error, results1, fields1) {
-//         if (error) throw error;
-//         var dob_array = results1.map(function(student) {return student.dob});
-//         var age_average = getAverageAge(dob_array);
-//         res.render('classroom/index', {moment: moment, title: 'Class: ' + results[0].name, classroom: results, students: results1, age_average: age_average });
-//       });
-//     } else {
-//       res.render('classroom/index', {moment: moment, title: 'Class Management', classroom: results});
-//     }
-//   });
-// });
-
-
-// API PUT edit class
-// router.put('/class/:id/edit', function(req, res, next) {
-//   var class_id = req.params.id;
-//   var name = req.body.name;
-//   var department = req.body.department;
-//   var description = req.body.description;
-//
-//   var classroom = [name, department, description];
-//   connection.query('UPDATE class SET name = ?, department = ?, description = ? WHERE id="' + class_id + '"', classroom, function(error, results, fields) {
-//     if (error) throw error;
-//     res.json(200);
-//   });
-// });
-
 // API GET class
 router.get('/class/:id', function(req, res, next) {
   var class_id = req.params.id;

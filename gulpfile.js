@@ -8,14 +8,13 @@ var del = require('del');
 var sass = require('gulp-sass');
 var pug = require('gulp-pug');
 var gutil = require('gulp-util');
-var browserSync = require('browser-sync').create();
 
 var minifyJS = composer(uglifyjs, console);
 gulp.task('clean', function() {
   return del(['build']);
 });
 
-gulp.task('scripts', ['clean'], function() {
+gulp.task('scripts', function() {
   return gulp.src('public/javascripts/*.js')
     .pipe(sourcemaps.init())
     .pipe(minifyJS())
